@@ -1,0 +1,86 @@
+# Site-specific rules for headers and behavior
+
+rules:
+  - domain: "bilibili.com"
+    category: "website"
+    required_headers:
+      - "Referer"
+      - "User-Agent"
+    suggested_headers:
+      - "Cookie"
+    referer_template: "https://www.bilibili.com"
+    warning: "Some Bilibili videos may require login cookies"
+
+  - domain: "youtube.com"
+    category: "website"
+    required_headers:
+      - "User-Agent"
+    suggested_headers:
+      - "Cookie"
+    warning: "YouTube may require cookies for age-restricted content"
+
+  - domain: "youtu.be"
+    category: "website"
+    required_headers:
+      - "User-Agent"
+    referer_template: "https://www.youtube.com"
+
+  - domain: "v.qq.com"
+    category: "website"
+    required_headers:
+      - "Referer"
+      - "Cookie"
+    suggested_headers:
+      - "User-Agent"
+    referer_template: "https://v.qq.com"
+    warning: "Tencent Video requires login and proper referer"
+
+  - domain: "iqiyi.com"
+    category: "website"
+    required_headers:
+      - "Referer"
+      - "Cookie"
+    referer_template: "https://www.iqiyi.com"
+
+  - domain: "youku.com"
+    category: "website"
+    required_headers:
+      - "Referer"
+      - "Cookie"
+    referer_template: "https://www.youku.com"
+
+  - domain: "douyin.com"
+    category: "website"
+    required_headers:
+      - "User-Agent"
+    suggested_headers:
+      - "Referer"
+    referer_template: "https://www.douyin.com"
+
+  - domain: "tiktok.com"
+    category: "website"
+    required_headers:
+      - "User-Agent"
+    referer_template: "https://www.tiktok.com"
+
+  - domain: "twitch.tv"
+    category: "live"
+    required_headers:
+      - "User-Agent"
+    suggested_headers:
+      - "Client-ID"
+    warning: "Twitch may require OAuth token for high quality streams"
+
+  - domain: "huya.com"
+    category: "live"
+    required_headers:
+      - "User-Agent"
+      - "Referer"
+    referer_template: "https://www.huya.com"
+
+  - domain: "douyu.com"
+    category: "live"
+    required_headers:
+      - "User-Agent"
+      - "Referer"
+    referer_template: "https://www.douyu.com"

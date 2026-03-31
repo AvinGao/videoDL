@@ -191,8 +191,8 @@ FFmpeg（可选，格式转换需要）
 ### 从源码运行
 ```
 # 克隆仓库
-git clone https://github.com/yourname/video-downloader.git
-cd video-downloader
+git clone https://github.com/AvinGao/videoDL.git
+cd videoDL-main
 
 # 安装依赖
 pip install -r requirements.txt
@@ -321,46 +321,11 @@ with open('启动程序.bat', 'w', encoding='gbk') as f:
     f.write('@echo off\n')
 ```
 版本历史
-v1.0.0 (2024-03-30)
-新增功能：
+v1.0.0 (2026-03-31)
 
-M3U8/HLS 下载支持
 
-直链视频下载支持
-
-YouTube、Bilibili 等网站支持
-
-磁力链接、BT 种子支持
-
-直播录制支持
-
-图形界面
-
-下载历史记录
-
-自定义请求头
-
-Cookie 导入
-
-多线程下载
-
-断点续传
-
-技术栈：
-
-PyQt6 图形界面
-
-aiohttp 异步下载
-
-N_m3u8DL-RE HLS 下载
-
-yt-dlp 网站解析
-
-aria2 P2P 下载
-
-FFmpeg 格式转换
-
-许可证
+### 许可证
+```
 MIT License
 
 Copyright (c) 2024 Video Downloader Team
@@ -382,7 +347,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
+```
 免责声明
 本工具仅供学习交流使用。使用者应遵守相关法律法规，尊重版权，仅下载有合法权利的内容。开发者不对因使用本工具产生的任何版权纠纷或法律问题承担责任。
 

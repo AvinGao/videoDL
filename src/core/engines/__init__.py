@@ -2,18 +2,18 @@
 
 from .base import BaseEngine
 from .direct import DirectDownloadEngine
-from .hls import HlsEngine
+from .direct_hls import DirectHlsEngine
 from .dash import DashEngine
 from .p2p import P2pEngine
 from .live import LiveEngine
-from .website import WebsiteEngine  # 新增
+from .website import WebsiteEngine
 
 __all__ = [
     "BaseEngine",
     "DirectDownloadEngine",
-    "HlsEngine",
+    "DirectHlsEngine",
     "DashEngine",
     "P2pEngine",
     "LiveEngine",
-    "WebsiteEngine",  # 新增
+    "WebsiteEngine",
 ]

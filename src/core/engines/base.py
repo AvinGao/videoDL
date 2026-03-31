@@ -5,12 +5,19 @@ from abc import ABC, abstractmethod
 from typing import Optional, Callable, List
 from pathlib import Path
 import logging
+import sys
 
 from ..models.download import DownloadOptions, DownloadResult
 from ..models.headers import RequestHeaders
 from ..models.link import LinkCategory
 
 logger = logging.getLogger(__name__)
+
+# Windows 下隐藏控制台窗口的标志
+if sys.platform == 'win32':
+    CREATE_NO_WINDOW = 0x08000000
+else:
+    CREATE_NO_WINDOW = 0
 
 
 class BaseEngine(ABC):

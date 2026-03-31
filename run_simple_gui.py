@@ -60,7 +60,6 @@ class DownloadWorker(QThread):
     
     def _on_progress(self, task_id: str, percent: float, current: int, total: int):
         """Handle progress update."""
-        print(f"[Worker] 进度回调: task_id={task_id}, percent={percent:.1f}%")
         self.progress_signal.emit(task_id, percent, current, total)
     
     def _options_to_model(self, options_dict: dict) -> DownloadOptions:
@@ -197,7 +196,26 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("Video Downloader")
         self.setMinimumSize(900, 700)
         self.resize(1000, 750)
-    
+
+        # 后台检查工具（可选）
+        self.check_tools_background()
+
+    def check_tools_background(self):
+        """后台检查必要工具"""
+        import threading
+        
+        def check():
+            from src.core.utils.tool_manager import tool_manager
+            
+            tools = ["N_m3u8DL-RE", "yt-dlp", "aria2c", "ffmpeg"]
+            for tool in tools:
+                path = tool_manager.get_tool_path(tool)
+                if path:
+                    self.add_log(f"✓ {tool} 已就绪: {path}")
+                else:
+                    self.add_log(f"⚠ {tool} 未找到，首次使用时会自动下载")
+        
+        threading.Thread(target=check, daemon=True).start()
     def get_window_icon(self):
         """获取窗口图标"""
         base_path = get_base_path()
@@ -665,7 +683,6 @@ class MainWindow(QMainWindow):
     
     def update_progress(self, task_id: str, percent: float, current: int, total: int):
         """Update progress bar."""
-        print(f"[GUI] 更新进度: {task_id} - {percent:.1f}%")
         self.progress_bar.setValue(int(percent))
         self.statusBar.showMessage(f"下载进度: {percent:.1f}%")
     
